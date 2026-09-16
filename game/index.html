@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>谜题大富翁</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 主场景：大富翁棋盘 -->
+    <div id="screen-board" class="screen">
+      <div id="hud"></div>
+      <div id="board-wrap">
+        <div id="chapter-banner"></div>
+        <div id="board"></div>
+      </div>
+      <div id="bottom-bar"></div>
+    </div>
+    <!-- 玩法场景 -->
+    <div id="screen-game" class="screen hidden"></div>
+    <!-- 浮层容器 -->
+    <div id="overlay-root"></div>
+    <div id="fx-root"></div>
+    <div id="toast-root"></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

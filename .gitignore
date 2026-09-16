@@ -1,0 +1,15 @@
+# 依赖与构建产物
+game/node_modules/
+game/dist/
+
+# 由 scripts/sync-config.mjs 从 ../config/ 同步生成，源文件在仓库根 config/
+game/public/
+
+# 工具会话状态（非项目代码）
+.mimosa/
+.v2c/
+.video_agent/
+
+# 系统文件
+Thumbs.db
+.DS_Store
