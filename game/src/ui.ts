@@ -62,6 +62,14 @@ export function updateHUD(): void {
   const chap = document.querySelector('.hud-chip.chapter')
   if (chap) chap.textContent = meta.chapterName()
   updatePieceChip()
+  // 换肤模式的数值位（美术图上的动态文字）
+  const pieceText = s.finished ? '' : `${meta.piecesOf(meta.gateFor().picId).length}/${meta.gateFor().need}`
+  document.querySelectorAll<HTMLElement>('[data-bind]').forEach(e => {
+    const k = e.getAttribute('data-bind')
+    if (k === 'coins') e.textContent = String(s.coins)
+    else if (k === 'dice') e.textContent = String(s.dice)
+    else if (k === 'pieces') e.textContent = pieceText
+  })
 }
 
 function updatePieceChip(): void {

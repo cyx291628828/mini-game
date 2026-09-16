@@ -422,6 +422,68 @@ body {
 .tool-btn.gold { background: linear-gradient(135deg, #ffc53d, #ff9a2e); color: #5b2d00; }
 .tool-btn:active { transform: scale(.94); }
 
+/* ============ 美术棋盘模式（换肤：图上元素即界面） ============ */
+#board-wrap.art-mode { justify-content: center; padding: 0; }
+.stage {
+  position: relative;
+  width: min(100%, calc(100dvh * 0.5625));
+  aspect-ratio: 864 / 1536;
+  margin: 0 auto;
+  overflow: hidden;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.stage-bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.art-layer { position: absolute; inset: 0; z-index: 4; }
+.skin-tile {
+  position: absolute;
+  border-radius: 26%;
+  background: transparent;
+  box-shadow: none;
+  z-index: 4;
+}
+.skin-tile .tile-ic { line-height: 1; opacity: .92; filter: drop-shadow(0 2px 3px rgba(0,0,0,.5)); }
+.skin-tile.lit {
+  background: rgba(105,220,130,.4);
+  box-shadow: inset 0 0 0 calc(var(--u,1px)*3) rgba(60,180,90,.95), 0 0 calc(var(--u,1px)*10) rgba(120,255,150,.55);
+}
+.skin-tile.lit::after {
+  content: '✓'; position: absolute; top: -20%; right: -4%;
+  font-size: calc(var(--u,1px)*30); color: #46ff85; font-weight: 900;
+  text-shadow: 0 1px 4px rgba(0,0,0,.8);
+}
+.skin-tile.cur {
+  outline: calc(var(--u,1px)*4) solid #ffb937;
+  outline-offset: calc(var(--u,1px)*2);
+  box-shadow: 0 0 calc(var(--u,1px)*16) rgba(255,185,55,.85);
+  animation: curGlow 1.1s infinite alternate;
+}
+.skin-num {
+  position: absolute; z-index: 8;
+  display: flex; align-items: center; justify-content: center; gap: 3%;
+  border-radius: 999px; color: #fff; font-weight: 900; letter-spacing: .5px;
+  text-shadow: 0 2px 0 rgba(0,0,0,.28);
+  font-variant-numeric: tabular-nums;
+}
+.skin-hot {
+  position: absolute; z-index: 9;
+  background: transparent; border: none; cursor: pointer; border-radius: 20%;
+  -webkit-tap-highlight-color: transparent;
+}
+.skin-hot:active, .skin-press {
+  background: rgba(255,255,255,.3);
+  box-shadow: inset 0 0 0 calc(var(--u,1px)*3) rgba(255,255,255,.65);
+}
+.slot-sprite { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.skin-tile .tile-ic { position: relative; z-index: 2; }
+.skin-dice-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; transition: transform .1s, filter .1s;
+}
+.skin-hot:active .skin-dice-img { transform: scale(.95); filter: brightness(.88); }
+
 @media (max-height: 720px) {
   .dice-btn { width: 78px; height: 78px; }
   .dice-face { font-size: 24px; }
